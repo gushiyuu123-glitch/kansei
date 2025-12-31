@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================
+   甘静｜Design Tokens
+   -------------------------------------
+   白：余白と静けさ
+   墨：判断の軸
+   季：色は主張せず、気配として存在
+===================================== */
+:root {
+  /* 基本 */
+  --paper: #fbfaf7;     /* 和紙の白（黄ばみすぎない） */
+  --ink:   #161513;     /* 墨寄りの黒（完全黒にしない） */
+
+  /* 季節・気配 */
+  --season: #6c7b66;    /* 抹茶 × 葉の中間色（主張禁止） */
+
+  /* 補助色（使うなら1px・影・selectionのみ） */
+  --ume:    #e7b3bc;    /* 梅・練り切り */
+  --azuki:  #8b5a5a;    /* 小豆 */
+  --yolk:   #e6d18a;    /* 卵・黄身時雨 */
+
+  /* Typography */
+  --jp-serif: "Zen Old Mincho", "游明朝", "Hiragino Mincho ProN", serif;
+}
+
+/* =====================================
+   Base
+===================================== */
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--jp-serif);
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =====================================
+   Selection（唯一“色を感じる瞬間”）
+===================================== */
+::selection {
+  background: rgba(108, 123, 102, 0.18); /* season */
+  color: var(--ink);
+}
+
+/* =====================================
+   和紙ノイズ（必要な場所だけ重ねる）
+   ※ bodyには直接使わない
+===================================== */
+.washi-coarse {
+  background-image: url("/images/texture/washi.png");
+  background-repeat: repeat;
+  background-size: 420px 420px;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+}
+
+.washi-fine {
+  background-image: url("/images/texture/washi-fine.png");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+/* =====================================
+   余韻のためのユーティリティ
+===================================== */
+.shadow-season {
+  box-shadow: 0 6px 18px rgba(108, 123, 102, 0.12);
+}
+
+.text-muted {
+  opacity: 0.55;
+}
+
+.text-ghost {
+  opacity: 0.35;
+}
+/* 縦文字 */
+.writing-vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* 写真トーン（明度のみ） */
+.tone-up-3 {
+  filter: brightness(1.03);
+}
+
+.tone-down-3 {
+  filter: brightness(0.97);
+}
+img {
+  transition: filter 1.2s ease, transform 1.2s ease;
+}
+img:hover {
+  filter: contrast(1.02) brightness(0.99);
+  transform: translateY(-2px);
+}
+/* 任意 */
+.card:hover img {
+  transform: scale(1.01);
+}
+/* 呼吸前（静止） */
+.breath {
+  opacity: 0;
+  transform: translateY(2px);
+  transition:
+    opacity 1.8s ease,
+    transform 2.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* 呼吸後 */
+.breath.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.active {
+  opacity: 0.65;
+}
+.inactive {
+  opacity: 0.35;
+}

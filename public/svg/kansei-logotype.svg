@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 420" aria-label="甘静">
+  <style>
+    text {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
+      font-weight: 500;
+      fill: #111;
+      letter-spacing: 0.02em;
+    }
+  </style>
+
+  <text x="100" y="150" text-anchor="middle" font-size="120">甘</text>
+  <text x="100" y="320" text-anchor="middle" font-size="120">静</text>
+</svg>

@@ -35,14 +35,19 @@ export default function HeroSP() {
       {/* =====================
           背景（季節）
       ===================== */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: "url(/images/hero/bg-spring1sp.png)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+  {/* ① 季節の写真（情報） */}
+  <div
+    className="
+      absolute inset-0
+      scale-[1.04]
+      -translate-y-[6vh]
+    "
+    style={{
+      backgroundImage: "url(/images/hero/bg-spring1sp.png)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
 
       {/* 陰影（上下だけ） */}
       <div
@@ -53,15 +58,40 @@ export default function HeroSP() {
         }}
       />
 
+  {/* ② 視線制御（空気の沈み） */}
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      background: `
+        radial-gradient(
+          70% 55% at 50% 45%,
+          rgba(0,0,0,0.05) 0%,
+          rgba(0,0,0,0.02) 38%,
+          rgba(0,0,0,0) 65%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0.10) 0%,
+          rgba(0,0,0,0) 40%,
+          rgba(0,0,0,0.08) 100%
+        )
+      `,
+    }}
+  />
       {/* 和紙テクスチャ */}
-      <div
-        className="absolute inset-0 opacity-[0.08] mix-blend-multiply"
-        style={{
-          backgroundImage: "url(/images/texture/washi.png)",
-          backgroundRepeat: "repeat",
-          backgroundSize: "420px 420px",
-        }}
-      />
+  <div
+    className="
+      absolute inset-0
+      opacity-[0.07]
+      mix-blend-multiply
+      pointer-events-none
+    "
+    style={{
+      backgroundImage: "url(/images/texture/washi.png)",
+      backgroundRepeat: "repeat",
+      backgroundSize: "420px 420px",
+    }}
+  />
 
       {/* =====================
           中央レイヤー（芯）
@@ -76,32 +106,37 @@ export default function HeroSP() {
             text-[2.1rem]
             tracking-[0.32em]
             opacity-85
+            -translate-y-[-7vh]
           "
           style={{ fontFamily: "var(--jp-serif)" }}
         >
           甘静
         </h1>
+<div
+  data-anim
+  className="
+    w-[68vw]
+    max-w-[300px]
+    aspect-[3/4]
+    relative
+  "
+>
+  {/* 空気の層（カード感消し） */}
+  <div
+    className="absolute inset-0 rounded-[2px]"
+    style={{
+      background:
+        "radial-gradient(60% 50% at 50% 50%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 65%)",
+    }}
+  />
 
-        {/* 菓子（視覚の芯） */}
-        <div
-          data-anim
-          className="
-            w-[68vw]
-            max-w-[300px]
-            aspect-[3/4]
-          "
-        >
-          <img
-            src="/images/hero/hero-1sp.png"
-            alt=""
-            draggable={false}
-            className="
-              w-full h-full object-cover
-              rounded-[2px]
-              shadow-[0_5px_16px_rgba(0,0,0,0.055)]
-            "
-          />
-        </div>
+  <img
+    src="/images/hero/hero-1sp.png"
+    draggable={false}
+    className="relative  w-full h-full object-cover -translate-y-[-2vh]"
+  />
+</div>
+
 
         {/* コピー */}
         <p

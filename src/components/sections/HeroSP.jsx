@@ -92,7 +92,7 @@ export default function HeroSP() {
           "
         >
           <img
-            src="/images/hero/hero-1.png"
+            src="/images/hero/hero-1sp.png"
             alt=""
             draggable={false}
             className="

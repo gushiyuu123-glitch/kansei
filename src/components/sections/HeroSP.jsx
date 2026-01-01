@@ -79,7 +79,7 @@ export default function HeroSP() {
         <div
           data-anim
           className="
-            absolute top-[28vh] left-2/2 -translate-x-1/2
+            absolute top-[28vh] left-1/2 -translate-x-1/2
             w-[70vw] max-w-[300px]
             aspect-[3/4]
           "
@@ -94,7 +94,7 @@ export default function HeroSP() {
           <img
             src="/images/hero/hero-1sp.png"
             draggable={false}
-            className="relative w-full h-full object-cover left-[56px]"
+            className="relative w-full h-full object-cover"
           />
         </div>
 
